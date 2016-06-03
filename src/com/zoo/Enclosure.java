@@ -93,9 +93,23 @@ public class Enclosure {
         });
     }
 
+
     public void getAnimalsAmount(){
+        int animalsAll = this.animals.size();
+
+        System.out.format("Zwierzat na wybiegu jest: %d\n", animalsAll);
+
         this.animalsTypes.forEach(animalType->{
-            System.out.println(animalType);
+
+            int animalsAmount = 0;
+            for (Animal animal : this.animals) {
+                if(animal.getAnimalType() == animalType){
+                    animalsAmount++;
+                }
+            }
+
+            System.out.format("%s: %d\n", animalType, animalsAmount);
+
         });
     }
 

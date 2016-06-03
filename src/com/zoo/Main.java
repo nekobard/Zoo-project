@@ -14,6 +14,7 @@ public class Main {
         enclosure.addAnimal("krokodyl-amerykanski", "Jack");
         enclosure.addAnimal("krokodyl-nilowy", "Kasia");
         enclosure.addAnimal("krokodyl-nilowy", "Bartek");
+        enclosure.addAnimal("krokodyl-nilowy", "Bartek");
         enclosure.addAnimal("krokodyl-amerykanski", "Roman");
 
         enclosure.getAnimalsAmount();
