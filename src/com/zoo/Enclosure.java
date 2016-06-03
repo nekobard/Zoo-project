@@ -96,8 +96,9 @@ public class Enclosure {
 
     public void getAnimalsAmount(){
         int animalsAll = this.animals.size();
+        String enclosureName = this.getName();
 
-        System.out.format("Zwierzat na wybiegu jest: %d\n", animalsAll);
+        System.out.format("Zwierzat na wybiegu %s jest: %d\n", enclosureName, animalsAll);
 
         this.animalsTypes.forEach(animalType->{
 
