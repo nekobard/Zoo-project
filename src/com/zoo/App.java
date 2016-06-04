@@ -10,6 +10,25 @@ import java.util.Scanner;
 public class App {
     private List<Enclosure> enclosures;
 
+    private int findEnclosure(String enclosureName){
+        int k=0;
+        boolean enclosureFound = false;
+        int enclosureIndex = 0;
+        while(k < this.enclosures.size() && !enclosureFound){
+            if(enclosures.get(k).getName().equals(enclosureName)){
+                enclosureFound = true;
+                enclosureIndex = k;
+            }else{
+                k++;
+            }
+        }
+        if(enclosureFound){
+            return enclosureIndex;
+        }else{
+            return -1;
+        }
+    }
+
     private void recognizeCommand(String userCommand){
         String[] commands = userCommand.split("\\s+");
         if(commands[0].equals("new")){
@@ -18,20 +37,11 @@ public class App {
                     this.addEnclosure(commands[i]);
                 }
             } else if(commands[1].equals("animal")){
-                int k=0;
-                boolean enclosureFound = false;
-                int enclosureIndex = 0;
-                while(k < enclosures.size() && !enclosureFound){
-                    if(enclosures.get(k).getName().equals(commands[4])){
-                        enclosureFound = true;
-                        enclosureIndex = k;
-                    }else{
-                        k++;
-                    }
-                }
-                if(enclosureFound){
-                    enclosures.get(enclosureIndex).addAnimal(commands[2], commands[3]);
-                }else{
+
+                int indexFound = findEnclosure(commands[4]);
+                if(indexFound != -1){
+                    enclosures.get(indexFound).addAnimal(commands[2], commands[3]);
+                } else {
                     System.out.println("Nie ma takiego wybiegu");
                 }
             }
@@ -54,15 +64,7 @@ public class App {
     }
 
     private void addEnclosure(String enclosureName){
-        int j=0;
-        boolean nameFound = false;
-        while(j < this.enclosures.size() && !nameFound){
-            if(this.enclosures.get(j).getName().equals(enclosureName)){
-                nameFound = true;
-            }
-            j++;
-        }
-        if(!nameFound){
+        if(this.findEnclosure(enclosureName) == -1){
             Enclosure enclosure = new Enclosure(enclosureName);
             enclosures.add(enclosure);
             System.out.format("Stworzono wybieg %s\n", enclosureName);

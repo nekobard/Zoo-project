@@ -32,7 +32,6 @@ public class Enclosure {
         this.setName(name);
     }
 
-    
     public void addAnimal(String animalType, String animalName){
 
         if(animalType.equals("krokodyl-nilowy")){
