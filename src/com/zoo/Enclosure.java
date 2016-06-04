@@ -48,6 +48,8 @@ public class Enclosure {
             this.addAnimalType(americanCrocodile.getAnimalType());
             this.animals.add(americanCrocodile);
 
+        } else{
+            System.out.println("Nie ma takiego gatunku");
         }
     }
 

@@ -18,9 +18,22 @@ public class App {
                     this.addEnclosure(commands[i]);
                 }
             } else if(commands[1].equals("animal")){
-
-
-
+                int k=0;
+                boolean enclosureFound = false;
+                int enclosureIndex = 0;
+                while(k < enclosures.size() && !enclosureFound){
+                    if(enclosures.get(k).getName().equals(commands[4])){
+                        enclosureFound = true;
+                        enclosureIndex = k;
+                    }else{
+                        k++;
+                    }
+                }
+                if(enclosureFound){
+                    enclosures.get(enclosureIndex).addAnimal(commands[2], commands[3]);
+                }else{
+                    System.out.println("Nie ma takiego wybiegu");
+                }
             }
         } else if(commands[0].equals("get")){
             if(commands[1].equals("enclosures")){
@@ -28,6 +41,8 @@ public class App {
             }
         } else if(commands[0].equals("exit")){
             System.out.println("Papa");
+        } else{
+            System.out.println("Nieznana komenda");
         }
     }
 
