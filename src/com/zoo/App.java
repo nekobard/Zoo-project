@@ -87,6 +87,7 @@ public class App {
 
     private void getAnimalsInfo(){
         this.enclosures.forEach(enclosure -> {
+            System.out.format("Wybieg %s:\n", enclosure.getName());
             enclosure.getAnimalsInfo();
         });
     }
