@@ -89,10 +89,15 @@ public class Enclosure {
     }
 
     public void getAnimalsInfo(){
-        this.animals.forEach(animal -> {
-            animal.getInfo();
-            System.out.println();
-        });
+        if(this.animals.size() > 0){
+            this.animals.forEach(animal -> {
+                animal.getInfo();
+                System.out.println();
+            });
+        } else{
+            System.out.format("Na wybiegu %s nie ma jeszcze zwierzat\n", this.getName());
+        }
+
     }
 
 

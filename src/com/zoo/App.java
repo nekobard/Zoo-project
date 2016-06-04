@@ -42,7 +42,7 @@ public class App {
 
                     int indexFound = findEnclosure(commands[4]);
                     if(indexFound != -1){
-                        enclosures.get(indexFound).addAnimal(commands[2], commands[3]);
+                        this.enclosures.get(indexFound).addAnimal(commands[2], commands[3]);
                     } else {
                         System.out.println("Nie ma takiego wybiegu");
                     }
@@ -53,6 +53,24 @@ public class App {
             } else if(commands[0].equals("get")){
                 if(commands[1].equals("enclosures")){
                     this.getEnclosures();
+                }else if(commands[1].equals("animals-info")){
+                    if(this.enclosures.size() > 0) {
+                        if (commands.length == 2) {
+                            System.out.println("Co robia zwierzeta we wszystkich wybiegach:");
+                            this.getAnimalsInfo();
+                        } else if (commands.length == 3) {
+                            System.out.format("Co robia zwierzeta na wybiegu %s:\n", commands[2]);
+                            int enclosureIndex = 0;
+                            enclosureIndex = this.findEnclosure(commands[2]);
+                            if (enclosureIndex != -1) {
+                                this.getAnimalsInfo(enclosureIndex);
+                            }
+                        } else {
+                            System.out.println("Zla skladnia dla get animals-info");
+                        }
+                    }else{
+                        System.out.println("Nie ma jeszcze wybiegow");
+                    }
                 }else{
                     System.out.println("Zla skladnia dla get");
                 }
@@ -65,6 +83,16 @@ public class App {
         } catch(ArrayIndexOutOfBoundsException ex){
             System.out.println("Zla liczba argumentow");
         }
+    }
+
+    private void getAnimalsInfo(){
+        this.enclosures.forEach(enclosure -> {
+            enclosure.getAnimalsInfo();
+        });
+    }
+
+    private void getAnimalsInfo(int index){
+        this.enclosures.get(index).getAnimalsInfo();
     }
 
     private void getEnclosures(){
