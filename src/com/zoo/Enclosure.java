@@ -32,21 +32,22 @@ public class Enclosure {
         this.setName(name);
     }
 
-
-
+    
     public void addAnimal(String animalType, String animalName){
 
-        if(animalType == "krokodyl-nilowy"){
+        if(animalType.equals("krokodyl-nilowy")){
 
             NileCrocodile nileCrocodile = new NileCrocodile(animalName);
             this.addAnimalType(nileCrocodile.getAnimalType());
             this.animals.add(nileCrocodile);
+            System.out.println("Wprowadzono na wybieg krokodyla nilowego");
 
-        } else if(animalType == "krokodyl-amerykanski"){
+        } else if(animalType.equals("krokodyl-amerykanski")){
 
             AmericanCrocodile americanCrocodile = new AmericanCrocodile(animalName);
             this.addAnimalType(americanCrocodile.getAnimalType());
             this.animals.add(americanCrocodile);
+            System.out.println("Wprowadzono na wybieg krokodyla amerykanskiego");
 
         } else{
             System.out.println("Nie ma takiego gatunku");
