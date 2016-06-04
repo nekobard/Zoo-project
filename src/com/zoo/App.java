@@ -71,6 +71,22 @@ public class App {
                     }else{
                         System.out.println("Nie ma jeszcze wybiegow");
                     }
+                }else if(commands[1].equals("animals-amount")) {
+                    if (this.enclosures.size() > 0) {
+                        if (commands.length == 2) {
+                            this.getAnimalsAmount();
+                        } else if (commands.length == 3) {
+                            int enclosureIndex = 0;
+                            enclosureIndex = this.findEnclosure(commands[2]);
+                            if (enclosureIndex != -1) {
+                                this.getAnimalsAmount(enclosureIndex);
+                            }
+                        } else {
+                            System.out.println("Zla skladnia dla get animals-info");
+                        }
+                    } else {
+                        System.out.println("Nie ma jeszcze wybiegow");
+                    }
                 }else if(commands[1].equals("animals-state")){
                     if (commands.length == 2) {
                         System.out.println("Stan zwierzat:");
@@ -108,6 +124,17 @@ public class App {
 
     private void getAnimalsState(int index){
         this.enclosures.get(index).getAnimalsState();
+    }
+
+    private void getAnimalsAmount(){
+        this.enclosures.forEach(enclosure -> {
+            System.out.format("Wybieg %s:\n", enclosure.getName());
+            enclosure.getAnimalsAmount();
+        });
+    }
+
+    private void getAnimalsAmount(int index){
+        this.enclosures.get(index).getAnimalsAmount();
     }
 
     private void getAnimalsInfo(){
