@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4df359c7-7acc-4cc1-8e60-173d0c996ff1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/zoo/App.java" afterPath="$PROJECT_DIR$/src/com/zoo/App.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/zoo/Enclosure.java" afterPath="$PROJECT_DIR$/src/com/zoo/Enclosure.java" />
     </list>
     <ignored path="Zoo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -108,8 +107,8 @@
       <file leaf-file-name="App.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/zoo/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1235">
-              <caret line="65" column="52" selection-start-line="65" selection-start-column="52" selection-end-line="65" selection-end-column="52" />
+            <state relative-caret-position="494">
+              <caret line="65" column="37" selection-start-line="65" selection-start-column="37" selection-end-line="65" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -848,8 +847,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/zoo/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1235">
-          <caret line="65" column="52" selection-start-line="65" selection-start-column="52" selection-end-line="65" selection-end-column="52" />
+        <state relative-caret-position="494">
+          <caret line="65" column="37" selection-start-line="65" selection-start-column="37" selection-end-line="65" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

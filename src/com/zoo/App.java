@@ -31,28 +31,39 @@ public class App {
 
     private void recognizeCommand(String userCommand){
         String[] commands = userCommand.split("\\s+");
-        if(commands[0].equals("new")){
-            if(commands[1].equals("enclosure")){
-                for(int i = 2; i < commands.length; i++){
-                    this.addEnclosure(commands[i]);
-                }
-            } else if(commands[1].equals("animal")){
+        try{
+            if(commands[0].equals("new")){
 
-                int indexFound = findEnclosure(commands[4]);
-                if(indexFound != -1){
-                    enclosures.get(indexFound).addAnimal(commands[2], commands[3]);
-                } else {
-                    System.out.println("Nie ma takiego wybiegu");
+                if(commands[1].equals("enclosure")){
+                    for(int i = 2; i < commands.length; i++){
+                        this.addEnclosure(commands[i]);
+                    }
+                } else if(commands[1].equals("animal")){
+
+                    int indexFound = findEnclosure(commands[4]);
+                    if(indexFound != -1){
+                        enclosures.get(indexFound).addAnimal(commands[2], commands[3]);
+                    } else {
+                        System.out.println("Nie ma takiego wybiegu");
+                    }
+                } else{
+                    System.out.println("Zla skladnia dla new");
                 }
+
+            } else if(commands[0].equals("get")){
+                if(commands[1].equals("enclosures")){
+                    this.getEnclosures();
+                }else{
+                    System.out.println("Zla skladnia dla get");
+                }
+            } else if(commands[0].equals("exit")){
+                System.out.println("Papa");
+            } else{
+                System.out.println("Nieznana komenda");
             }
-        } else if(commands[0].equals("get")){
-            if(commands[1].equals("enclosures")){
-                this.getEnclosures();
-            }
-        } else if(commands[0].equals("exit")){
-            System.out.println("Papa");
-        } else{
-            System.out.println("Nieznana komenda");
+
+        } catch(ArrayIndexOutOfBoundsException ex){
+            System.out.println("Zla liczba argumentow");
         }
     }
 
@@ -84,8 +95,9 @@ public class App {
         Scanner sc = new Scanner(System.in);
 
         while(!userCommand.equals("exit")){
+
             userCommand = sc.nextLine();
-            //System.out.println(userCommand);
+
             this.recognizeCommand(userCommand);
 
         }
