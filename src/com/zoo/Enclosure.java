@@ -63,7 +63,7 @@ public class Enclosure {
         System.out.format("Zawierzeta na wybiegu: %s nie sa juz glodne ani spragnione\n", this.getName());
     }
 
-    public void getAnimalsStatus(){
+    public void getAnimalsState(){
         this.animals.forEach(animal -> {
 
             System.out.format("%s %s:\n", animal.getAnimalType(),animal.getName());

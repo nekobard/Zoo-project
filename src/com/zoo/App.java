@@ -71,6 +71,20 @@ public class App {
                     }else{
                         System.out.println("Nie ma jeszcze wybiegow");
                     }
+                }else if(commands[1].equals("animals-state")){
+                    if (commands.length == 2) {
+                        System.out.println("Stan zwierzat:");
+                        this.getAnimalsState();
+                    } else if (commands.length == 3) {
+                        System.out.format("Stan zwierzat na wybiegu %s:\n", commands[2]);
+                        int enclosureIndex = 0;
+                        enclosureIndex = this.findEnclosure(commands[2]);
+                        if (enclosureIndex != -1) {
+                            this.getAnimalsState(enclosureIndex);
+                        }
+                    } else {
+                        System.out.println("Zla skladnia dla get animals-state");
+                    }
                 }else{
                     System.out.println("Zla skladnia dla get");
                 }
@@ -83,6 +97,17 @@ public class App {
         } catch(ArrayIndexOutOfBoundsException ex){
             System.out.println("Zla liczba argumentow");
         }
+    }
+
+    private void getAnimalsState(){
+        this.enclosures.forEach(enclosure -> {
+            System.out.format("Wybieg %s:\n", enclosure.getName());
+            enclosure.getAnimalsState();
+        });
+    }
+
+    private void getAnimalsState(int index){
+        this.enclosures.get(index).getAnimalsState();
     }
 
     private void getAnimalsInfo(){
