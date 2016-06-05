@@ -50,7 +50,19 @@ public class App {
                     System.out.println("Zla skladnia dla new");
                 }
 
-            } else if(commands[0].equals("get")){
+            } else if(commands[0].equals("feed")){
+                if(commands.length == 1){
+                    this.feedAnimals();
+                } else if(commands.length == 2){
+                    int enclosureIndex = 0;
+                    enclosureIndex = this.findEnclosure(commands[1]);
+                    if (enclosureIndex != -1) {
+                        this.feedAnimals(enclosureIndex);
+                    }
+                }else{
+                    System.out.println("Zla skladnia dla feed");
+                }
+            }else if(commands[0].equals("get")){
                 if(commands[1].equals("enclosures")){
                     this.getEnclosures();
                 }else if(commands[1].equals("animals-info")){
@@ -163,6 +175,16 @@ public class App {
         }else{
             System.out.format("Wybieg %s juz istnieje\n", enclosureName);
         }
+    }
+
+    private void feedAnimals(){
+        this.enclosures.forEach(enclosure -> {
+            enclosure.feedAnimals();
+        });
+    }
+
+    private void feedAnimals(int index){
+        this.enclosures.get(index).feedAnimals();
     }
 
     public App(){

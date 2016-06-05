@@ -54,13 +54,17 @@ public class Enclosure {
     }
 
     public void feedAnimals(){
+        if(this.animals.size() > 0){
+            this.animals.forEach(animal -> {
+                animal.setHungry(false);
+                animal.setThirsty(false);
+            });
 
-        this.animals.forEach(animal -> {
-            animal.setHungry(false);
-            animal.setThirsty(false);
-        });
+            System.out.format("Zawierzeta na wybiegu: %s nie sa juz glodne ani spragnione\n", this.getName());
+        }else{
+            System.out.format("Na wybiegu %s nie ma zwierzat\n", this.getName());
+        }
 
-        System.out.format("Zawierzeta na wybiegu: %s nie sa juz glodne ani spragnione\n", this.getName());
     }
 
     public void getAnimalsState(){
