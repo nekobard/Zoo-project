@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
+
 /**
  * Created by nekobard on 03.06.16.
  */
@@ -62,6 +64,8 @@ public class App {
                 }else{
                     System.out.println("Zla skladnia dla feed");
                 }
+            }else if(commands[0].equals("save")){
+                //this.saveToJson();
             }else if(commands[0].equals("get")){
                 if(commands[1].equals("enclosures")){
                     this.getEnclosures();
@@ -187,6 +191,7 @@ public class App {
         this.enclosures.get(index).feedAnimals();
     }
 
+
     public App(){
         this.enclosures = new ArrayList<Enclosure>();
     }
@@ -196,6 +201,7 @@ public class App {
 
         String userCommand = "";
         Scanner sc = new Scanner(System.in);
+
 
         while(!userCommand.equals("exit")){
 
