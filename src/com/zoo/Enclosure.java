@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by nekobard on 30.05.16.
  */
-public class Enclosure {
+public class Enclosure{
 
     private String name;
     private List<Animal> animals;

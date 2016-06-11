@@ -1,5 +1,6 @@
 package com.zoo;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -30,6 +31,8 @@ public class App {
             return -1;
         }
     }
+
+    private SQLiteZoo sqLiteZoo;
 
     private void recognizeCommand(String userCommand){
         String[] commands = userCommand.split("\\s+");
@@ -65,7 +68,7 @@ public class App {
                     System.out.println("Zla skladnia dla feed");
                 }
             }else if(commands[0].equals("save")){
-                //this.saveToJson();
+                this.save();
             }else if(commands[0].equals("get")){
                 if(commands[1].equals("enclosures")){
                     this.getEnclosures();
@@ -194,9 +197,11 @@ public class App {
 
     public App(){
         this.enclosures = new ArrayList<Enclosure>();
+        this.sqLiteZoo = new SQLiteZoo();
     }
 
     public void start(){
+        this.sqLiteZoo.start();
         System.out.println("Witaj w wirtualnym Zoo. Mozesz tworzyc nowe wybiegi i umieszczac tam zwierzeta");
 
         String userCommand = "";
@@ -216,6 +221,14 @@ public class App {
     }
 
     private void manual(){
+
+    }
+
+    private void save(){
+
+    }
+
+    private void load(){
 
     }
 }
