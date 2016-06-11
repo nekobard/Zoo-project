@@ -177,7 +177,7 @@ public class SQLiteZoo {
                 }
 
                 if(animalType.equals("krokodyl-nilowy")){
-                    System.out.println("Tu jest krokodyl nil");
+
                     NileCrocodile nileCrocodile = new NileCrocodile(name);
                     nileCrocodile.setThirsty(isThirsty);
                     nileCrocodile.setHungry(isHungry);
