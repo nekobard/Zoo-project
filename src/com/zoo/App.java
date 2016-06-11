@@ -69,9 +69,7 @@ public class App {
                 }else{
                     System.out.println("Zla skladnia dla feed");
                 }
-            }else if(commands[0].equals("save")){
-                this.save();
-            }else if(commands[0].equals("get")){
+            } else if(commands[0].equals("get")){
                 if(commands[1].equals("enclosures")){
                     this.getEnclosures();
                 }else if(commands[1].equals("animals-info")){
@@ -232,5 +230,5 @@ public class App {
         sc.close();
 
     }
-    
+
 }
