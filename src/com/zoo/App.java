@@ -207,6 +207,13 @@ public class App {
         this.enclosures = this.sqLiteZoo.loadEnclosures();
         this.enclosures.forEach(enclosure -> {
             enclosure.animals = this.sqLiteZoo.loadAnimals(enclosure.getName());
+            List<String> animalsTypes = new ArrayList<String>();
+            enclosure.animals.forEach(animal->{
+                if(!animalsTypes.contains(animal.getAnimalType())){
+                    animalsTypes.add(animal.getAnimalType());
+                }
+            });
+            enclosure.animalsTypes = animalsTypes;
         });
         System.out.println("Witaj w wirtualnym Zoo. Mozesz tworzyc nowe wybiegi i umieszczac tam zwierzeta");
 

@@ -10,7 +10,7 @@ public class Enclosure{
 
     private String name;
     public List<Animal> animals;
-    private List<String> animalsTypes;
+    public List<String> animalsTypes;
 
     private void addAnimalType(String animalType){
         if(!animalsTypes.contains(animalType)){
