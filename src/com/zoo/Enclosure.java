@@ -9,7 +9,7 @@ import java.util.List;
 public class Enclosure{
 
     private String name;
-    private List<Animal> animals;
+    public List<Animal> animals;
     private List<String> animalsTypes;
 
     private void addAnimalType(String animalType){

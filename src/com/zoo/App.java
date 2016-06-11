@@ -205,6 +205,9 @@ public class App {
     public void start(){
         this.sqLiteZoo.start();
         this.enclosures = this.sqLiteZoo.loadEnclosures();
+        this.enclosures.forEach(enclosure -> {
+            enclosure.animals = this.sqLiteZoo.loadAnimals(enclosure.getName());
+        });
         System.out.println("Witaj w wirtualnym Zoo. Mozesz tworzyc nowe wybiegi i umieszczac tam zwierzeta");
 
         String userCommand = "";

@@ -125,4 +125,83 @@ public class SQLiteZoo {
         return enclosures;
     }
 
+    private int enclosureId(String name){
+        int id = -1;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            this.connection = DriverManager.getConnection("jdbc:sqlite:zoo.db");
+            this.connection.setAutoCommit(false);
+
+            this.statement = this.connection.createStatement();
+            ResultSet rs = this.statement.executeQuery( "SELECT * FROM ENCLOSURES WHERE NAME='" + name +"';" );
+            while ( rs.next() ) {
+                id = rs.getInt("ID");
+
+            }
+            rs.close();
+            this.statement.close();
+            this.connection.close();
+        } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+        }
+
+        return id;
+    }
+
+    public List<Animal> loadAnimals(String enclosureName){
+        List<Animal> animals = new ArrayList<Animal>();
+
+        int id = this.enclosureId(enclosureName);
+
+        try {
+            Class.forName("org.sqlite.JDBC");
+            this.connection = DriverManager.getConnection("jdbc:sqlite:zoo.db");
+            this.connection.setAutoCommit(false);
+
+            this.statement = this.connection.createStatement();
+            ResultSet rs = this.statement.executeQuery( "SELECT * FROM ANIMALS WHERE ENCLOSURE_ID=" + id +";" );
+            while ( rs.next() ) {
+                String  name = rs.getString("NAME");
+                String animalType = rs.getString("ANIMAL_TYPE");
+                String thirsty = rs.getString("IS_THIRSTY");
+                String hungry = rs.getString("IS_HUNGRY");
+
+                boolean isThirsty = false;
+                boolean isHungry = false;
+                if(thirsty.equals("yes")){
+                    isThirsty = true;
+                }
+                if(hungry.equals("yes")){
+                    isHungry = true;
+                }
+
+                if(animalType.equals("krokodyl-nilowy")){
+                    System.out.println("Tu jest krokodyl nil");
+                    NileCrocodile nileCrocodile = new NileCrocodile(name);
+                    nileCrocodile.setThirsty(isThirsty);
+                    nileCrocodile.setHungry(isHungry);
+                    animals.add(nileCrocodile);
+
+                } else if(animalType.equals("krokodyl-amerykanski")){
+
+                    AmericanCrocodile americanCrocodile = new AmericanCrocodile(name);
+                    americanCrocodile.setThirsty(isThirsty);
+                    americanCrocodile.setHungry(isHungry);
+                    animals.add(americanCrocodile);
+
+                }
+
+            }
+            rs.close();
+            this.statement.close();
+            this.connection.close();
+        } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+        }
+
+        return animals;
+    }
+
 }
