@@ -232,16 +232,5 @@ public class App {
         sc.close();
 
     }
-
-    private void manual(){
-
-    }
-
-    private void save(){
-
-    }
-
-    private void load(){
-
-    }
+    
 }

@@ -55,6 +55,13 @@ public class Enclosure{
             this.animals.add(nileCrocodileAlpha);
             System.out.println("Wprowadzono na wybieg krokodyla nilowego alfa");
 
+        }else if(animalType.equals("lemur")){
+
+            Lemur lemur = new Lemur(animalName);
+            this.addAnimalType(lemur.getAnimalType());
+            this.animals.add(lemur);
+            System.out.println("Wprowadzono na wybieg lemura");
+
         }else{
             System.out.println("Nie ma takiego gatunku");
         }

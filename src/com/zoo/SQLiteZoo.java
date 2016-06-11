@@ -197,6 +197,13 @@ public class SQLiteZoo {
                     nileCrocodileAlpha.setHungry(isHungry);
                     animals.add(nileCrocodileAlpha);
 
+                } else if(animalType.equals("lemur")){
+
+                    Lemur lemur = new Lemur(name);
+                    lemur.setThirsty(isThirsty);
+                    lemur.setHungry(isHungry);
+                    animals.add(lemur);
+
                 }
 
             }
