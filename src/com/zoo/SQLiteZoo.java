@@ -23,7 +23,6 @@ public class SQLiteZoo {
         try {
             Class.forName("org.sqlite.JDBC");
             this.connection = DriverManager.getConnection("jdbc:sqlite:zoo.db");
-            System.out.println("Opened database successfully");
 
             this.statement = this.connection.createStatement();
             String sql = "CREATE TABLE IF NOT EXISTS ENCLOSURES " +
@@ -31,6 +30,17 @@ public class SQLiteZoo {
                     " NAME TEXT NOT NULL)";
 
             this.statement.executeUpdate(sql);
+
+            sql = "CREATE TABLE IF NOT EXISTS ANIMALS " +
+                    "(ID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    " ENCLOSURE_ID INTEGER NOT NULL," +
+                    " IS_THIRSTY TEXT NOT NULL," +
+                    " IS_HUNGRY TEXT NOT NULL," +
+                    " ANIMAL_TYPE TEXT NOT NULL," +
+                    " NAME TEXT NOT NULL)";
+
+            this.statement.executeUpdate(sql);
+
             this.statement.close();
             this.connection.close();
         } catch ( Exception e ) {
@@ -44,7 +54,6 @@ public class SQLiteZoo {
             Class.forName("org.sqlite.JDBC");
             this.connection = DriverManager.getConnection("jdbc:sqlite:zoo.db");
             this.connection.setAutoCommit(false);
-            System.out.println("Opened database successfully");
 
             this.statement = this.connection.createStatement();
             String sql = "INSERT INTO ENCLOSURES (NAME) " +
@@ -58,7 +67,36 @@ public class SQLiteZoo {
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
             System.exit(0);
         }
-        System.out.println("Records created successfully");
+
+    }
+
+    public void saveAnimal(String animalType, String name, String enclosureName){
+        try {
+            Class.forName("org.sqlite.JDBC");
+            this.connection = DriverManager.getConnection("jdbc:sqlite:zoo.db");
+            this.connection.setAutoCommit(false);
+
+            this.statement = this.connection.createStatement();
+
+
+            int enclosureId = -1;
+            ResultSet rs = this.statement.executeQuery( "SELECT * FROM ENCLOSURES WHERE NAME='" + enclosureName + "' ;" );
+            while ( rs.next() ) {
+                enclosureId = rs.getInt("ID");
+            }
+            rs.close();
+
+            String sql = "INSERT INTO ANIMALS (NAME, ANIMAL_TYPE, IS_THIRSTY, IS_HUNGRY, ENCLOSURE_ID) " +
+                    "VALUES ('"+ name +"','"+ animalType +"', 'yes', 'yes', " + enclosureId + ");";
+            this.statement.executeUpdate(sql);
+
+            this.statement.close();
+            this.connection.commit();
+            this.connection.close();
+        } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+        }
     }
 
     public List<Enclosure> loadEnclosures(){
@@ -68,7 +106,6 @@ public class SQLiteZoo {
             Class.forName("org.sqlite.JDBC");
             this.connection = DriverManager.getConnection("jdbc:sqlite:zoo.db");
             this.connection.setAutoCommit(false);
-            System.out.println("Opened database successfully");
 
             this.statement = this.connection.createStatement();
             ResultSet rs = this.statement.executeQuery( "SELECT * FROM ENCLOSURES;" );
@@ -84,7 +121,6 @@ public class SQLiteZoo {
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
             System.exit(0);
         }
-        System.out.println("Operation done successfully");
 
         return enclosures;
     }

@@ -49,6 +49,7 @@ public class App {
                     int indexFound = findEnclosure(commands[4]);
                     if(indexFound != -1){
                         this.enclosures.get(indexFound).addAnimal(commands[2], commands[3]);
+                        this.sqLiteZoo.saveAnimal(commands[2], commands[3], commands[4]);
                     } else {
                         System.out.println("Nie ma takiego wybiegu");
                     }
