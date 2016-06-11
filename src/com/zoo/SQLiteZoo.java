@@ -190,6 +190,13 @@ public class SQLiteZoo {
                     americanCrocodile.setHungry(isHungry);
                     animals.add(americanCrocodile);
 
+                } else if(animalType.equals("krokodyl-nilowy-alfa")){
+
+                    NileCrocodileAlpha nileCrocodileAlpha = new NileCrocodileAlpha(name);
+                    nileCrocodileAlpha.setThirsty(isThirsty);
+                    nileCrocodileAlpha.setHungry(isHungry);
+                    animals.add(nileCrocodileAlpha);
+
                 }
 
             }

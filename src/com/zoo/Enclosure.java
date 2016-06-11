@@ -48,7 +48,14 @@ public class Enclosure{
             this.animals.add(americanCrocodile);
             System.out.println("Wprowadzono na wybieg krokodyla amerykanskiego");
 
-        } else{
+        } else if(animalType.equals("krokodyl-nilowy-alfa")){
+
+            NileCrocodileAlpha nileCrocodileAlpha = new NileCrocodileAlpha(animalName);
+            this.addAnimalType(nileCrocodileAlpha.getAnimalType());
+            this.animals.add(nileCrocodileAlpha);
+            System.out.println("Wprowadzono na wybieg krokodyla nilowego alfa");
+
+        }else{
             System.out.println("Nie ma takiego gatunku");
         }
     }
