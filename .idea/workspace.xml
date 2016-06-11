@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4df359c7-7acc-4cc1-8e60-173d0c996ff1" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data.db" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/zoo/DatabaseSQLite.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Zoo/com/zoo/App.class" afterPath="$PROJECT_DIR$/out/production/Zoo/com/zoo/App.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zoo.db" afterPath="$PROJECT_DIR$/zoo.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/zoo/App.java" afterPath="$PROJECT_DIR$/src/com/zoo/App.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/zoo/Enclosure.java" afterPath="$PROJECT_DIR$/src/com/zoo/Enclosure.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/zoo/SQLiteZoo.java" afterPath="$PROJECT_DIR$/src/com/zoo/SQLiteZoo.java" />
     </list>
     <ignored path="Zoo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,10 +62,11 @@
       <file leaf-file-name="SQLiteZoo.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/zoo/SQLiteZoo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="679">
-              <caret line="57" column="59" selection-start-line="57" selection-start-column="59" selection-end-line="57" selection-end-column="59" />
+            <state relative-caret-position="565">
+              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2105#2116#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -111,8 +109,8 @@
       <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/zoo/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="203" column="31" selection-start-line="203" selection-start-column="31" selection-end-line="203" selection-end-column="31" />
+            <state relative-caret-position="3116">
+              <caret line="205" column="58" selection-start-line="205" selection-start-column="58" selection-end-line="205" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -923,14 +921,6 @@
     <entry file="file://$PROJECT_DIR$/data.json" />
     <entry file="file://$PROJECT_DIR$/src/com/zoo/AnimalTest.java" />
     <entry file="file://$PROJECT_DIR$/src/com/zoo/DatabaseSQLite.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/zoo/NileCrocodile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/zoo/Crocodile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -939,14 +929,6 @@
             <element signature="e#145#146#0" expanded="true" />
             <element signature="e#172#173#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/zoo/Animal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -978,10 +960,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/zoo/NileCrocodile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/zoo/Animal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/zoo/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="203" column="31" selection-start-line="203" selection-start-column="31" selection-end-line="203" selection-end-column="31" />
+        <state relative-caret-position="3116">
+          <caret line="205" column="58" selection-start-line="205" selection-start-column="58" selection-end-line="205" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -990,10 +988,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/zoo/SQLiteZoo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="679">
-          <caret line="57" column="59" selection-start-line="57" selection-start-column="59" selection-end-line="57" selection-end-column="59" />
+        <state relative-caret-position="565">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2105#2116#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -2,7 +2,10 @@ package com.zoo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by nekobard on 11.06.16.
@@ -45,7 +48,7 @@ public class SQLiteZoo {
 
             this.statement = this.connection.createStatement();
             String sql = "INSERT INTO ENCLOSURES (NAME) " +
-                    "VALUES ("+ name +");";
+                    "VALUES ('"+ name +"');";
             this.statement.executeUpdate(sql);
 
             this.statement.close();
@@ -56,6 +59,34 @@ public class SQLiteZoo {
             System.exit(0);
         }
         System.out.println("Records created successfully");
+    }
+
+    public List<Enclosure> loadEnclosures(){
+        List<Enclosure> enclosures = new ArrayList<Enclosure>();
+
+        try {
+            Class.forName("org.sqlite.JDBC");
+            this.connection = DriverManager.getConnection("jdbc:sqlite:zoo.db");
+            this.connection.setAutoCommit(false);
+            System.out.println("Opened database successfully");
+
+            this.statement = this.connection.createStatement();
+            ResultSet rs = this.statement.executeQuery( "SELECT * FROM ENCLOSURES;" );
+            while ( rs.next() ) {
+                String  name = rs.getString("NAME");
+                Enclosure enclosure = new Enclosure(name);
+                enclosures.add(enclosure);
+            }
+            rs.close();
+            this.statement.close();
+            this.connection.close();
+        } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+        }
+        System.out.println("Operation done successfully");
+
+        return enclosures;
     }
 
 }

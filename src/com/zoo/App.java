@@ -42,6 +42,7 @@ public class App {
                 if(commands[1].equals("enclosure")){
                     for(int i = 2; i < commands.length; i++){
                         this.addEnclosure(commands[i]);
+                        this.sqLiteZoo.saveEnclosure(commands[i]);
                     }
                 } else if(commands[1].equals("animal")){
 
@@ -202,6 +203,7 @@ public class App {
 
     public void start(){
         this.sqLiteZoo.start();
+        this.enclosures = this.sqLiteZoo.loadEnclosures();
         System.out.println("Witaj w wirtualnym Zoo. Mozesz tworzyc nowe wybiegi i umieszczac tam zwierzeta");
 
         String userCommand = "";
